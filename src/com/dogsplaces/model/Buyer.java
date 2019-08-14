@@ -6,7 +6,7 @@ public class Buyer {
 	private String name;
 	private String cpf;
 	private String email;
-	private String endereco;
+	private String address;
 	
 	public int getId() {
 		return id;
@@ -32,11 +32,11 @@ public class Buyer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getEndereco() {
-		return endereco;
+	public String getAddress() {
+		return address;
 	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 }
