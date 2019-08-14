@@ -5,7 +5,7 @@ public class Dog {
 	private int id;
 	private int breedId;
 	private int age;
-	private String gender;
+	private char gender;
 	private float price;
 	private String coatColor;
 	
@@ -27,10 +27,10 @@ public class Dog {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getGender() {
+	public char getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 	public float getPrice() {

@@ -6,7 +6,7 @@ public class Breed {
 	private String description;
 	private String coatLength;
 	private float height;
-	private float width;
+	private float weight;
 	
 	public int getId() {
 		return id;
@@ -32,11 +32,11 @@ public class Breed {
 	public void setHeight(float height) {
 		this.height = height;
 	}
-	public float getWidth() {
-		return width;
+	public float getWeight() {
+		return weight;
 	}
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWeight(float width) {
+		this.weight = width;
 	}
 	
 }

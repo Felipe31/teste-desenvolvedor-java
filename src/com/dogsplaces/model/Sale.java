@@ -4,7 +4,15 @@ public class Sale {
 
 	private int id;
 	private int buyerId;
+	private boolean finished;
 	
+	
+	public boolean isFinished() {
+		return finished;
+	}
+	public void setFinished(boolean finished) {
+		this.finished = finished;
+	}
 	public int getId() {
 		return id;
 	}
