@@ -2,30 +2,35 @@ package com.dogsplaces.controller;
 
 import javax.faces.bean.ManagedBean;
 
+import com.dogsplaces.dao.BuyerDao;
 import com.dogsplaces.model.Buyer;
+import com.dogsplaces.session.SessionContext;
 
 @ManagedBean
 public class BuyerBean {
 	private Buyer buyer;
-	private String a;
-
-	public String getA() {
-		return a;
-	}
-
-	public void setA(String a) {
-		this.a = a;
+	
+	public BuyerBean() {
+		buyer = new Buyer();
 	}
 
 	public Buyer getBuyer() {
 		return buyer;
 	}
-
-	public void setBuyer(Buyer buyer) {
-		this.buyer = buyer;
-	}
 	
-	public void salvar() {
-		System.out.println(a);
+	public String submit() {
+
+		try {
+			
+			BuyerDao buyerDao = new BuyerDao(null);
+			buyerDao.addBuyer(buyer);
+			
+			SessionContext.getInstance().finishSession();
+			
+		} catch (Exception e) {
+			return "";
+		}
+		
+		return "index?faces-redirect=true";
 	}
 }

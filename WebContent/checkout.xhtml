@@ -5,8 +5,8 @@
 	<h:head>
 		<meta charset="UTF-8"/>
 		<h:outputStylesheet library="css" name="bootstrap.css"/>
-		<title>Checkout</title>
 		<h:outputStylesheet library="css" name="style.css"/>
+		<title>Checkout</title>
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 		<ui:include src="/WEB-INF/common/header.xhtml"/>
@@ -14,35 +14,35 @@
 	    <div class="row ml-2 mr-2">
 			<div class="col-md-12">
 				<h3>Delivery details:</h3>
-				<form role="form">
-					<div class="form-group">
-						<label for="name">
-							Name
-						</label>
-						<input type="text" class="form-control" id="name" />
-					</div>
-					<div class="form-group">
-						<label for="cpf">
-							CPF
-						</label>
-						<input type="text" class="form-control" id="cpf" />
-					</div>
-					<div class="form-group">
-						<label for="email">
-							Email
-						</label>
-						<input type="email" class="form-control" id="email" />
-					</div> 
-					<div class="form-group">
-						<label for="address">
-							Address
-						</label>
-						<input type="text" class="form-control" id="address" />
-					</div>
-					<button type="submit" class="btn btn-primary">
-						Submit
-					</button>
-				</form>
+				<h:form>
+				<!-- role="form" -->
+                   <div class="form-group">
+                        <label for="name">
+                            Name <h:outputText value="#{buyerBean.i}"/>
+                        </label>
+                        <h:inputText styleClass="form-control" value="#{buyerBean.buyer.name}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">
+                            CPF
+                        </label>
+                        <h:inputText styleClass="form-control" value="#{buyerBean.buyer.cpf}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            Email
+                        </label>
+                        <h:inputText styleClass="form-control" value="#{buyerBean.buyer.email}" />
+                    </div> 
+                    <div class="form-group">
+                        <label for="address">
+                            Address
+                        </label>
+                        <h:inputText styleClass="form-control" value="#{buyerBean.buyer.address}" />
+                    </div>
+                    <h:commandButton styleClass="btn btn-primary" value="Submit"
+                    	action="#{buyerBean.submit}" />
+				</h:form>
 			</div>
 		</div>
 	    
