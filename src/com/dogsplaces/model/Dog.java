@@ -8,6 +8,7 @@ public class Dog {
 	private char gender;
 	private float price;
 	private String coatColor;
+	private boolean sold;
 	
 	public int getId() {
 		return id;
@@ -45,7 +46,12 @@ public class Dog {
 	public void setCoatColor(String coatColor) {
 		this.coatColor = coatColor;
 	}
-	
+	public boolean getSold() {
+		return sold;
+	}
+	public void setSold(boolean sold) {
+		this.sold = sold;
+	}
 	
 	
 }

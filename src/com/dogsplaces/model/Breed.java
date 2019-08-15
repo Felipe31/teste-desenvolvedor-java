@@ -3,11 +3,20 @@ package com.dogsplaces.model;
 public class Breed {
 
 	private int id;
+	private String name;
 	private String description;
 	private String coatLength;
 	private float height;
 	private float weight;
 	
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getId() {
 		return id;
 	}
