@@ -12,21 +12,22 @@
 	    <ui:include src="/WEB-INF/common/header.xhtml"/>
 	    <h:dataTable value="#{dogBean.dogs}" var="dog">
 		    <h:column>
-			        <div class="col">
-			            <h2>
-					    	Catioro #{dog.id}
-			            </h2>
-			            <p>Age: #{dog.age}</p>
-			            <p>Coat color: #{dog.coatColor}</p>
-			            <p>Gender: #{dog.gender}</p>
-			            <p>Price: #{dog.price}</p>
-			            <p>
-			                <a class="btn" href="#">View details »</a>
-			            </p> 
-			            <button type="button" class="btn btn-success btn-block align-self-end">
-			                + Cart
-			            </button>
-			        </div>
+		        <div class="col">
+		            <h2>
+				    	Catioro #{dog.id}
+		            </h2>
+		            <p>Age: #{dog.age}</p>
+		            <p>Coat color: #{dog.coatColor}</p>
+		            <p>Gender: #{dog.gender}</p>
+		            <p>Price: #{dog.price}</p>
+		            <p>
+		                <a class="btn" href="#">View details »</a>
+		            </p> 
+		            <h:commandButton value="+ Cart"
+		            	styleClass="btn btn-success btn-block align-self-end"
+	            		action="#{saleBean.addSale(dog.id)}"/>
+		                
+		        </div>
 		    </h:column>
 	    </h:dataTable>
 	</h:body>

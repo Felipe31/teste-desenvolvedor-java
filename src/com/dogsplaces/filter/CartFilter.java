@@ -28,7 +28,7 @@ public class CartFilter implements Filter {
 	                    FilterChain chain) throws IOException, ServletException {
 	   List<ItemSale> itemsSale= null;
 	   HttpSession sess = ((HttpServletRequest) request).getSession(false);
-	    System.out.println("no doFilter");
+
 	   if (sess != null){
 	         itemsSale = (List<ItemSale>) sess.getAttribute("itemsSale");
 	   }      

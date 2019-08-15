@@ -14,7 +14,7 @@ import com.dogsplaces.session.SessionContext;
 public class SaleBean {
 	
 	
-	public String addSale(ItemSale itemSale) {
+	public String addSale(int dogId) {
 		
 		List<ItemSale> itemsSale;
 		if (SessionContext.getInstance().getItemsSale() == null) {
@@ -22,7 +22,9 @@ public class SaleBean {
 		} else {
 			itemsSale = SessionContext.getInstance().getItemsSale();
 		}
-//		ItemSale itemSale = new ItemSale();
+//		TODO Verificar saleId
+		ItemSale itemSale = new ItemSale();
+		itemSale.setDogId(dogId);
 		itemsSale.add(itemSale);
 		SessionContext.getInstance().setAttribute("itemsSale", itemsSale);
 		return "";
@@ -39,22 +41,34 @@ public class SaleBean {
 			itemsSale = SessionContext.getInstance().getItemsSale();
 		}
 		
-		
 		dogs = new ArrayList<Dog>();
 		DogDao dogDao = new DogDao();
 		for (ItemSale itemSale : itemsSale) {
 			dogs.add(dogDao.getDog(itemSale.getDogId()));
 		}
 
-//		dogs.add(new Dog());		
-//		dogs.add(new Dog());		
-//		dogs.add(new Dog());		
-//		dogs.add(new Dog());
-		
+
+//		Dog d;
+//
+//		d = new Dog();
+//		d.setAge(1);
+//		dogs.add(d);
+//		d = new Dog();
+//		d.setAge(2);
+//		dogs.add(d);
+//		d = new Dog();
+//		d.setAge(3);
+//		dogs.add(d);
+//		d = new Dog();
+//		d.setAge(4);
+//		dogs.add(d);
+//		d = new Dog();
+//		d.setAge(5);
+//		dogs.add(d);
+//		
 		return dogs;
 		
 	}
-	
 	
 //	private SaleDao dao;
 //

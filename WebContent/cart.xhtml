@@ -16,34 +16,25 @@
 					The search breed:
 				</h3>
 				<div class="row align-items-center mt-5 mb-2">
-				<h:dataTable value="#{saleBean.dogs}" var="dog">
-                    <h:column>#{dog.breedId}</h:column>
-                    <h:column>#{dog.age} years old</h:column>
-                    <h:column>#{dog.gender} </h:column>
-                    <h:column>#{dog.coatColor} </h:column>
-                    <h:column>#{dog.price}</h:column>
-				</h:dataTable>
+					<div class="col"><b>Breed</b></div>
+					<div class="col"><b>Age</b></div>
+					<div class="col"><b>Gender</b></div>
+					<div class="col"><b>Coat Color</b></div>
+					<div class="col"><b>Price</b></div>
 				</div>
-				<div class="row align-items-center mt-5 mb-2">
-					<div class="col">
-					Dog 1
+				<ui:repeat value="#{saleBean.dogs}" var="dog">
+					<div class="row align-items-center mt-5 mb-2">
+                    	<div class="col">#{breedBean.getBreed(dog.breedId).name}</div>
+	                    <div class="col">#{dog.age} years old</div>
+	                    <div class="col">#{dog.gender} </div>
+	                    <div class="col">#{dog.coatColor} </div>
+	                    <div class="col">#{dog.price}</div>
 					</div>
-					<div class="col-md-6">
-					Age
-					</div>
-				</div>
-				<div class="row align-items-center mt-2 ">
-					<div class="col-md-6">
-					Dog 1
-					</div>
-					<div class="col-md-6">
-					Age
-					</div>
-				</div>
+				</ui:repeat>
 				<div class="row mt-5">
-					<button type="button" 
+					<button type="button" onclick="location.href='checkout.xhtml'" 
 						class="col-12 btn btn-success btn-block">
-	                			+ Cart
+	                			Checkout
 	         		</button>
 				</div>
 			</div>

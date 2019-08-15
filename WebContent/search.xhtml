@@ -5,8 +5,8 @@
 	<h:head>
 		<meta charset="UTF-8"/>
 		<h:outputStylesheet library="css" name="bootstrap.css"/>
-		<title>Search Result</title>
 		<h:outputStylesheet library="css" name="style.css"/>
+		<title>Search Result</title>
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 	   	<ui:include src="/WEB-INF/common/header.xhtml"/>
@@ -15,28 +15,27 @@
 				<h3>
 					The search breed:
 				</h3>
-				<div class="row align-items-center mt-2 mb-2">
-					<div class="col-md-4">
-					Dog 1
-					</div>
-					<div class="col-md-6">
-					Age
-					</div>
-						<button type="button" class=" col-md-2 btn btn-success btn-block">
-                			+ Cart
-            			</button>
+				<div class="row align-items-center mt-5 mb-2">
+					<div class="col"><b>Breed</b></div>
+					<div class="col"><b>Age</b></div>
+					<div class="col"><b>Gender</b></div>
+					<div class="col"><b>Coat Color</b></div>
+					<div class="col"><b>Price</b></div>
+					<div class="col"><b></b></div>
 				</div>
-				<div class="row align-items-center mt-2 mb-2">
-					<div class="col-md-4">
-					Dog 1
+				<ui:repeat value="#{saleBean.dogs}" var="dog">
+					<div class="row align-items-center mt-3 mb-3">
+                    	<div class="col">#{breedBean.getBreed(dog.breedId).name}</div>
+	                    <div class="col">#{dog.age} years old</div>
+	                    <div class="col">#{dog.gender} </div>
+	                    <div class="col">#{dog.coatColor} </div>
+	                    <div class="col">#{dog.price}</div>
+
+            			<h:commandButton value="+ Cart"
+		            		styleClass="col btn btn-success btn-block"
+	            			action="#{saleBean.addSale(dog.id)}"/>
 					</div>
-					<div class="col-md-6">
-					Age
-					</div>
-						<button type="button" class=" col-md-2 btn btn-success btn-block">
-                			+ Cart
-            			</button>
-				</div>
+				</ui:repeat>
 			</div>
 		</div>
 	</h:body>
