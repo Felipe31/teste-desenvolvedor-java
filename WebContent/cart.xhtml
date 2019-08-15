@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<meta charset="UTF-8"/>
+		<h:outputStylesheet library="css" name="bootstrap.css"/>
+		<h:outputStylesheet library="css" name="style.css"/>
+		<title>Shopping Cart</title>
+	</h:head>
+	<h:body styleClass="container" style="background-color: #ecf0f1">
+	   	<ui:include src="/WEB-INF/common/header.xhtml"/>
+	    <div class="row ml-2 mr-2">
+			<div class="col-12">
+				<h3>
+					The search breed:
+				</h3>
+				<div class="row align-items-center mt-5 mb-2">
+				<h:dataTable value="#{saleBean.dogs}" var="dog">
+                    <h:column>#{dog.breedId}</h:column>
+                    <h:column>#{dog.age} years old</h:column>
+                    <h:column>#{dog.gender} </h:column>
+                    <h:column>#{dog.coatColor} </h:column>
+                    <h:column>#{dog.price}</h:column>
+				</h:dataTable>
+				</div>
+				<div class="row align-items-center mt-5 mb-2">
+					<div class="col">
+					Dog 1
+					</div>
+					<div class="col-md-6">
+					Age
+					</div>
+				</div>
+				<div class="row align-items-center mt-2 ">
+					<div class="col-md-6">
+					Dog 1
+					</div>
+					<div class="col-md-6">
+					Age
+					</div>
+				</div>
+				<div class="row mt-5">
+					<button type="button" 
+						class="col-12 btn btn-success btn-block">
+	                			+ Cart
+	         		</button>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</html>
