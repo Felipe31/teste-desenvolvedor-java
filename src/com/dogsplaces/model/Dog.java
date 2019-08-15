@@ -1,7 +1,12 @@
 package com.dogsplaces.model;
 
-public class Dog {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Dog {
+	@Id @GeneratedValue
 	private int id;
 	private int breedId;
 	private int age;

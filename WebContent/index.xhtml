@@ -10,93 +10,24 @@
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 	    <ui:include src="/WEB-INF/common/header.xhtml"/>
-	    <div class="row mt-4">
-	        <div class="col-md-4 align-self-start">
-	            <h2>
-	                Heading
-	            </h2>
-	            <p>
-	                 a mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-	            </p>
-	            <p>
-	                <a class="btn" href="#">View details »</a>
-	            </p> 
-	            <button type="button" class="btn btn-success btn-block align-self-end">
-	                + Cart
-	            </button>
-	        </div>
-	        <div class="col-md-4">
-	            <h2>
-	                Heading
-	            </h2>
-	            <p>
-	                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-	            </p>
-	            <p>
-	                <a class="btn" href="#">View details »</a>
-	            </p> 
-	            <button type="button" class="btn btn-success btn-block">
-	                + Cart
-	            </button>
-	        </div>
-	        <div class="col-md-4">
-	            <h2>
-	                Heading
-	            </h2>
-	            <p>
-	                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-	            </p>
-	            <p>
-	                <a class="btn" href="#">View details »</a>
-	            </p> 
-	            <button type="button" class="btn btn-success btn-md btn-block">
-	                + Cart
-	            </button>
-	        </div>
-	    </div>
-	    <div class="row mt-4">
-	        <div class="col-md-4">
-	            <h2>
-	                Heading
-	            </h2>
-	            <p>
-	                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-	            </p>
-	            <p>
-	                <a class="btn" href="#">View details »</a>
-	            </p> 
-	            <button type="button" class="btn btn-success btn-block">
-	                + Cart
-	            </button>
-	        </div>
-	        <div class="col-md-4">
-	            <h2>
-	                Heading
-	            </h2>
-	            <p>
-	                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-	            </p>
-	            <p>
-	                <a class="btn" href="#">View details »</a>
-	            </p> 
-	            <button type="button" class="btn btn-success btn-block">
-	                + Cart
-	            </button>
-	        </div>
-	        <div class="col-md-4">
-	            <h2>
-	                Heading
-	            </h2>
-	            <p>
-	                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-	            </p>
-	            <p>
-	                <a class="btn" href="#">View details »</a>
-	            </p> 
-	            <button type="button" class="btn btn-success btn-md btn-block">
-	                + Cart
-	            </button>
-	        </div>
-	    </div>
+	    <h:dataTable value="#{dogBean.dogs}" var="dog">
+		    <h:column>
+			        <div class="col">
+			            <h2>
+					    	Catioro #{dog.id}
+			            </h2>
+			            <p>Age: #{dog.age}</p>
+			            <p>Coat color: #{dog.coatColor}</p>
+			            <p>Gender: #{dog.gender}</p>
+			            <p>Price: #{dog.price}</p>
+			            <p>
+			                <a class="btn" href="#">View details »</a>
+			            </p> 
+			            <button type="button" class="btn btn-success btn-block align-self-end">
+			                + Cart
+			            </button>
+			        </div>
+		    </h:column>
+	    </h:dataTable>
 	</h:body>
 </html>
