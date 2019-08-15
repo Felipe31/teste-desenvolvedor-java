@@ -7,12 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import com.dogsplaces.model.Breed;
 import com.dogsplaces.model.Dog;
+import com.dogsplaces.util.JPAUtil;
 
 public class DogDao {
 
 	private Connection connection;
+	
+	public DogDao() {}
 	
 	public DogDao(Connection connection) {
 		this.connection = connection;
@@ -106,33 +112,8 @@ public class DogDao {
 	}
 	
 	public List<Dog> getDogList() {
-		String sql = "select * from Dog";
-		
-		try {
-			List<Dog> dogs = new ArrayList<>();
-			PreparedStatement stmt = this.connection.prepareStatement(sql);
-			
-			ResultSet rs = stmt.executeQuery();
-			
-			while(rs.next()) {
-				Dog dog = new Dog();
-				
-				dog.setId(rs.getInt("id"));
-				dog.setBreedId(rs.getInt("breedId"));
-				dog.setAge(rs.getInt("age"));
-				dog.setCoatColor(rs.getString("coatColor"));
-				dog.setGender(rs.getString("gender").charAt(0));
-				dog.setSold(rs.getBoolean("sold"));
-					
-				dogs.add(dog);
-			}
-			
-			rs.close();
-			stmt.close();
-			
-			return dogs;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+		EntityManager em = JPAUtil.getEntityManager();
+		Query q = em.createQuery("select d from Dog d", Dog.class);
+		return q.getResultList();
 	}
 }
