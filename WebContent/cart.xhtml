@@ -7,6 +7,9 @@
 		<h:outputStylesheet library="css" name="bootstrap.css"/>
 		<h:outputStylesheet library="css" name="style.css"/>
 		<title>Shopping Cart</title>
+		<f:metadata>
+			<f:viewAction action="#{f5Detector.checkF5}" onPostBack="true"/>
+		</f:metadata>
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 	   	<ui:include src="/WEB-INF/common/header.xhtml"/>
