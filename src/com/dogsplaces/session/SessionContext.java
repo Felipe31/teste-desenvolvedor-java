@@ -1,6 +1,7 @@
 package com.dogsplaces.session;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -51,6 +52,14 @@ public class SessionContext {
      
     public void setAttribute(String nome, Object valor){
          currentExternalContext().getSessionMap().put(nome, valor);
+    }
+    
+    public Map<String, Object> getSessionMap() {
+    	return currentExternalContext().getSessionMap();
+    }
+    
+    public String getRequestServletPath() {
+    	return currentExternalContext().getRequestServletPath();
     }
      
 }
