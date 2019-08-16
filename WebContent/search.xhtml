@@ -19,21 +19,24 @@
 					The search breed:
 				</h3>
 				<div class="row align-items-center mt-5 mb-2">
-					<div class="col"><b>Breed</b></div>
 					<div class="col"><b>Age</b></div>
 					<div class="col"><b>Gender</b></div>
 					<div class="col"><b>Coat Color</b></div>
 					<div class="col"><b>Price</b></div>
+					<div class="col"><b>Breed</b></div>
+					<div class="col"><b></b></div>
 					<div class="col"><b></b></div>
 				</div>
 				<ui:repeat value="#{dogBean.dogs}" var="dog">
-					<div class="row align-items-center mt-3 mb-3">
+					<div class="row align-items-center mt-5 mb-2">
 	                    <div class="col">#{dog.age} years old</div>
 	                    <div class="col">#{dog.gender} </div>
 	                    <div class="col">#{dog.coatColor} </div>
 	                    <div class="col">#{dog.price}</div>
 	                    <div class="col">#{dog.breed.name}</div>
-
+						<h:form styleClass="col">
+		                	<h:commandLink action="#{dogBean.viewDetail(dog)}" value="View details »"/>
+		           		</h:form>
 						<h:form styleClass="col">
 	            			<h:commandButton value="+ Cart"
 			            		styleClass="col btn btn-success btn-block"
