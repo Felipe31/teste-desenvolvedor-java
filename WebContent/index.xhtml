@@ -5,8 +5,8 @@
 	<h:head>
 		<meta charset="UTF-8"/>
 		<h:outputStylesheet library="css" name="bootstrap.css"/>
-		<title>Dogs Lists</title>
 		<h:outputStylesheet library="css" name="style.css"/>
+		<title>Dogs Lists</title>
 		<f:metadata>
 			<f:viewAction action="#{f5Detector.checkF5}" onPostBack="true"/>
 		</f:metadata>
@@ -27,9 +27,11 @@
 		                	<h:commandLink styleClass="btn" action="#{dogBean.viewDetail(dog)}" value="View details »"/>
 			            </h:form>
                 	</p> 
-		            <h:commandButton value="+ Cart"
-		            	styleClass="btn btn-success btn-block align-self-end"
-		           		action="#{saleBean.addSale(dog.id)}"/>
+		            <h:form>
+		            	<h:commandButton value="+ Cart"
+		            		styleClass="btn btn-success btn-block align-self-end"
+		           			action="#{saleBean.addSale(dog)}"/>
+		           	</h:form>
 	            </div>
 			</ui:repeat>
 	    </div>

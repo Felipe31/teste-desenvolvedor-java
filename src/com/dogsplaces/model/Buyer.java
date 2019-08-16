@@ -1,12 +1,25 @@
 package com.dogsplaces.model;
 
-public class Buyer {
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Buyer {
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String cpf;
 	private String email;
 	private String address;
+	
+	@OneToMany(mappedBy="buyer")
+	private	List<Sale> sales;
 	
 	public int getId() {
 		return id;
@@ -37,6 +50,12 @@ public class Buyer {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public List<Sale> getSales() {
+		return sales;
+	}
+	public void setSales(List<Sale> sales) {
+		this.sales = sales;
 	}
 	
 }

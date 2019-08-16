@@ -3,7 +3,9 @@ package com.dogsplaces.controller;
 import javax.faces.bean.ManagedBean;
 
 import com.dogsplaces.dao.BuyerDao;
+import com.dogsplaces.dao.SaleDao;
 import com.dogsplaces.model.Buyer;
+import com.dogsplaces.model.Sale;
 import com.dogsplaces.session.SessionContext;
 
 @ManagedBean
@@ -20,16 +22,17 @@ public class BuyerBean {
 	
 	public String submit() {
 
-		try {
-			
-			BuyerDao buyerDao = new BuyerDao(null);
-			buyerDao.addBuyer(buyer);
-			
-			SessionContext.getInstance().finishSession();
-			
-		} catch (Exception e) {
-			return "";
+		BuyerDao buyerDao = new BuyerDao();
+		buyerDao.addBuyer(buyer);
+		
+		if (SessionContext.getInstance().getAttribute("sale") != null) {
+			Sale sale = (Sale) SessionContext.getInstance().getAttribute("sale");
+			SaleDao saleDao = new SaleDao();
+			saleDao.addSale(sale);
 		}
+			
+		SessionContext.getInstance().finishSession();
+
 		
 		return "index?faces-redirect=true";
 	}

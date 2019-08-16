@@ -18,6 +18,9 @@ public class Dog {
 	@ManyToOne
 	private Breed breed;
 	
+	@ManyToOne
+	private Sale sale;
+	
 	public int getId() {
 		return id;
 	}
@@ -59,6 +62,12 @@ public class Dog {
 	}
 	public void setBreed(Breed breed) {
 		this.breed = breed;
+	}
+	public Sale getSale() {
+		return sale;
+	}
+	public void setSale(Sale sale) {
+		this.sale = sale;
 	}
 	
 	

@@ -2,11 +2,8 @@ package com.dogsplaces.session;
 
 import java.util.List;
 import java.util.Map;
-
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
-import com.dogsplaces.model.ItemSale;
   
   
 public class SessionContext {
@@ -33,15 +30,7 @@ public class SessionContext {
              return FacesContext.getCurrentInstance().getExternalContext();
          }
     }
-     
-    public List<ItemSale> getItemsSale(){
-         return (List<ItemSale>) getAttribute("itemsSale");
-    }
-     
-    public void setItemsSale(List<ItemSale> itemsSale){
-         setAttribute("itemsSale", itemsSale);
-    }
-     
+
     public void finishSession(){   
          currentExternalContext().invalidateSession();
     }

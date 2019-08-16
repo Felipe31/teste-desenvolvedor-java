@@ -63,6 +63,11 @@ public class DogBean {
 		this.dog = dog;
 	}
 
+	public void a() {
+		System.out.println("aaaa");
+
+	}
+
 //	public Dog getDog() {
 //		return dao.select(); Select em um catioro
 //	}
