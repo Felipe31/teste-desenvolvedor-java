@@ -1,15 +1,24 @@
 package com.dogsplaces.model;
 
-public class Breed {
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Breed {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String description;
 	private String coatLength;
 	private float height;
 	private float weight;
-	
-	
+	@OneToMany(mappedBy="breed")
+	private	List<Dog> dogs;
 	
 	public String getName() {
 		return name;
@@ -46,6 +55,12 @@ public class Breed {
 	}
 	public void setWeight(float width) {
 		this.weight = width;
+	}
+	public List<Dog> getDogs() {
+		return dogs;
+	}
+	public void setDogs(List<Dog> dogs) {
+		this.dogs = dogs;
 	}
 	
 }

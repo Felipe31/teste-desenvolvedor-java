@@ -13,12 +13,11 @@
             		height="50px"/>
             		
             </a>
-            <form class="form-inline navbar-nav ">
-                    <input class="form-control mr-sm-2" type="text" /> 
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit">
-                        Search
-                    </button>
-                </form>
+            <h:form styleClass="form-inline navbar-nav">
+                <h:inputText styleClass="form-control mr-sm-2" value="#{dogBean.searchString}"/> 
+	            <h:commandButton styleClass="btn btn-primary my-2 my-sm-0" value="Search"
+					action="#{dogBean.searchDog()}"/>
+            </h:form>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="navbar-nav ml-md-auto">
                 

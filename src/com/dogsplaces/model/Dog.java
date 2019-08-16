@@ -2,30 +2,27 @@ package com.dogsplaces.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Dog {
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private int breedId;
 	private int age;
 	private char gender;
 	private float price;
 	private String coatColor;
 	private boolean sold;
+	@ManyToOne
+	private Breed breed;
 	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getBreedId() {
-		return breedId;
-	}
-	public void setBreedId(int breedId) {
-		this.breedId = breedId;
 	}
 	public int getAge() {
 		return age;
@@ -56,6 +53,12 @@ public class Dog {
 	}
 	public void setSold(boolean sold) {
 		this.sold = sold;
+	}
+	public Breed getBreed() {
+		return breed;
+	}
+	public void setBreed(Breed breed) {
+		this.breed = breed;
 	}
 	
 	

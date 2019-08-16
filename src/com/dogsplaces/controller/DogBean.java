@@ -11,7 +11,11 @@ import com.dogsplaces.model.Dog;
 public class DogBean {
 	private DogDao dao = new DogDao();
 	private List<Dog> dogs;
+	private String searchString = "";
 	
+	public void searchDog() {
+		dogs = dao.searchDog(searchString);
+	}
 
 	public List<Dog> getDogs() {
 		if(dogs == null) {
@@ -23,6 +27,14 @@ public class DogBean {
 
 	public void setDogs(List<Dog> dogs) {
 		this.dogs = dogs;
+	}
+
+	public String getSearchString() {
+		return searchString;
+	}
+
+	public void setSearchString(String searchString) {
+		this.searchString = searchString;
 	}
 
 //	public Dog getDog() {

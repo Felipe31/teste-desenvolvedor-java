@@ -39,7 +39,6 @@ public class DogDao {
 				Dog dog = new Dog();
 				
 				dog.setId(rs.getInt("id"));
-				dog.setBreedId(rs.getInt("breedId"));
 				dog.setAge(rs.getInt("age"));
 				dog.setCoatColor(rs.getString("coatColor"));
 				dog.setGender(rs.getString("gender").charAt(0));
@@ -57,6 +56,13 @@ public class DogDao {
 		}
 	}
 	
+	public List<Dog> searchDog(String breed) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Query q = em.createQuery("select d from Dog d where d.breed.name like :breedName", Dog.class);
+		q.setParameter("breedName", "%" + breed + "%");
+		return q.getResultList();
+	}
+	
 	public Dog getDog(int id) {
 		String sql = "select * from Dog " +
 				"where id = ?";
@@ -71,7 +77,6 @@ public class DogDao {
 			Dog dog = new Dog();
 			if (rs.next()) {
 				dog.setId(rs.getInt("id"));
-				dog.setBreedId(rs.getInt("breedId"));
 				dog.setAge(rs.getInt("age"));
 				dog.setCoatColor(rs.getString("coatColor"));
 				dog.setGender(rs.getString("gender").charAt(0));
@@ -98,7 +103,6 @@ public class DogDao {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
 			stmt.setInt(1, dog.getId());
-			stmt.setInt(2, dog.getBreedId());
 			stmt.setInt(3, dog.getAge());
 			stmt.setString(4, dog.getCoatColor());
 			stmt.setString(5, String.valueOf(dog.getGender()));
