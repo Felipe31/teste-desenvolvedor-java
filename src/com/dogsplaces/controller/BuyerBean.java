@@ -22,7 +22,7 @@ public class BuyerBean {
 
 		try {
 			
-			BuyerDao buyerDao = new BuyerDao(null);
+			BuyerDao buyerDao = new BuyerDao();
 			buyerDao.addBuyer(buyer);
 			
 			SessionContext.getInstance().finishSession();

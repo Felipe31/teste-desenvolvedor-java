@@ -47,7 +47,7 @@ public class PersistenceTest {
 		breed3.setName("German Shepherd Dog");
 		breed3.setHeight((float)26);
 		breed3.setWeight((float)95);
-		breed3.setDescription("The German Shepherd Dog is one of America’s most popular dog breeds—for good reason.");
+		breed3.setDescription("The German Shepherd Dog is one of America's most popular dog breeds' for good reason.");
 		breed3.setCoatLength("Medium");
 		tx.begin();
 		em.persist(breed3);

@@ -8,99 +8,34 @@ import javax.faces.bean.ManagedBean;
 import com.dogsplaces.dao.DogDao;
 import com.dogsplaces.model.Dog;
 import com.dogsplaces.model.ItemSale;
+import com.dogsplaces.model.Sale;
 import com.dogsplaces.session.SessionContext;
 
 @ManagedBean
 public class SaleBean {
 	
-	
-	public String addSale(int dogId) {
+	public String addSale(Dog dog) {
 		
-		List<ItemSale> itemsSale;
-		if (SessionContext.getInstance().getItemsSale() == null) {
-			itemsSale = new ArrayList<ItemSale>();
+		Sale sale;
+		if (SessionContext.getInstance().getAttribute("sale") == null) {
+			sale = new Sale();
 		} else {
-			itemsSale = SessionContext.getInstance().getItemsSale();
+			sale = (Sale) SessionContext.getInstance().getAttribute("sale");
 		}
-//		TODO Verificar saleId
-		ItemSale itemSale = new ItemSale();
-		itemSale.setDogId(dogId);
-		itemsSale.add(itemSale);
-		SessionContext.getInstance().setAttribute("itemsSale", itemsSale);
+
+		sale.getDogs().add(dog);
+		SessionContext.getInstance().setAttribute("sale", sale);
 		return "";
 	}
-	private List<Dog> dogs = null;
 	
 	public List<Dog> getDogs() {
-		if (dogs != null) return dogs;
 		
-		List<ItemSale> itemsSale;
-		if (SessionContext.getInstance().getItemsSale() == null) {
-			itemsSale = new ArrayList<ItemSale>();
-		} else {
-			itemsSale = SessionContext.getInstance().getItemsSale();
+		Sale sale = (Sale) SessionContext.getInstance().getAttribute("sale");
+		if (sale == null) {
+			return new ArrayList<Dog>();
 		}
-		
-		dogs = new ArrayList<Dog>();
-		DogDao dogDao = new DogDao();
-		for (ItemSale itemSale : itemsSale) {
-			dogs.add(dogDao.getDog(itemSale.getDogId()));
-		}
-
-
-//		Dog d;
-//
-//		d = new Dog();
-//		d.setAge(1);
-//		dogs.add(d);
-//		d = new Dog();
-//		d.setAge(2);
-//		dogs.add(d);
-//		d = new Dog();
-//		d.setAge(3);
-//		dogs.add(d);
-//		d = new Dog();
-//		d.setAge(4);
-//		dogs.add(d);
-//		d = new Dog();
-//		d.setAge(5);
-//		dogs.add(d);
-//		
-		return dogs;
-		
+			
+		return sale.getDogs();
 	}
-	
-//	private SaleDao dao;
-//
-//	public Sale getSale() {
-//		return dao.select();
-//	}
-//
-//	public void setSale(Sale sale) {
-//		this.dao.update(sale);
-//	}
-//	
-//	public void insertItem(Dog dog) {
-//		this.dao.insert(dog);
-//	}
-//	
-//	public void removeItem(Dog dog) {
-//		this.dao.remove(dog);
-//	}
-//	
-//	public float getTotalPrice() {
-//		float totalPrice = 0;
-//		for (Dog dog : this.dao.getListItemSaleDao) {
-//			totalPrice += dog.getPrice();
-//		}
-//		return totalPrice;
-//	}
-//	
-//	public int getTotalItens() {
-//		int totalItens = 0;
-//		for (Dog dog : this.dao.getListItemSaleDao) {
-//			totalPrice += 1;
-//		}
-//		return totalItens;
-//	}
+
 }

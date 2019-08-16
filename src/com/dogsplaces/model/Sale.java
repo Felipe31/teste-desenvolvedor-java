@@ -1,11 +1,16 @@
 package com.dogsplaces.model;
 
+import java.util.List;
+
+import javax.persistence.OneToMany;
+
 public class Sale {
 
 	private int id;
 	private int buyerId;
 	private boolean finished;
-	
+	@OneToMany(mappedBy="sale")
+	private	List<Dog> dogs;
 	
 	public boolean isFinished() {
 		return finished;
@@ -25,4 +30,11 @@ public class Sale {
 	public void setBuyerId(int buyerId) {
 		this.buyerId = buyerId;
 	}
+	public List<Dog> getDogs() {
+		return dogs;
+	}
+	public void setDogs(List<Dog> dogs) {
+		this.dogs = dogs;
+	}
+	
 }
