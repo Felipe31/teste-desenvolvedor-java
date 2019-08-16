@@ -21,17 +21,23 @@
 					<div class="col"><b>Gender</b></div>
 					<div class="col"><b>Coat Color</b></div>
 					<div class="col"><b>Price</b></div>
+					<div class="col"><b>Remove</b></div>
 				</div>
 				<ui:repeat value="#{saleBean.dogs}" var="dog">
 					<div class="row align-items-center mt-5 mb-2">
-                    	<div class="col">#{breedBean.getBreed(dog.breedId).name}</div>
+                    	<div class="col">#{dog.breed.name}</div>
 	                    <div class="col">#{dog.age} years old</div>
 	                    <div class="col">#{dog.gender} </div>
 	                    <div class="col">#{dog.coatColor} </div>
 	                    <div class="col">#{dog.price}</div>
+	                    <h:form styleClass="col ">
+	                    	<h:commandButton value="- Cart"
+		            			styleClass="btn btn-danger btn-block"
+	            				action="#{saleBean.removeSale(dog)}"/>
+           				</h:form>
 					</div>
 				</ui:repeat>
-				<div class="row mt-5">
+				<div class="row mt-5 mb-5">
 					<button type="button" onclick="location.href='checkout.xhtml'" 
 						class="col-12 btn btn-success btn-block">
 	                			Checkout

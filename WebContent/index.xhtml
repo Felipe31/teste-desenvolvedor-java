@@ -5,8 +5,8 @@
 	<h:head>
 		<meta charset="UTF-8"/>
 		<h:outputStylesheet library="css" name="bootstrap.css"/>
-		<title>Dogs Lists</title>
 		<h:outputStylesheet library="css" name="style.css"/>
+		<title>Dogs Lists</title>
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 	    <ui:include src="/WEB-INF/common/header.xhtml"/>
@@ -22,9 +22,11 @@
 	                <p>
 		                <a class="btn" href="#">View details »</a>
 		            </p> 
-		            <h:commandButton value="+ Cart"
-		            	styleClass="btn btn-success btn-block align-self-end"
-		           		action="#{saleBean.addSale(dog.id)}"/>
+		            <h:form>
+		            	<h:commandButton value="+ Cart"
+		            		styleClass="btn btn-success btn-block align-self-end"
+		           			action="#{saleBean.addSale(dog)}"/>
+		           	</h:form>
 	            </div>
 			</ui:repeat>
 	    </div>

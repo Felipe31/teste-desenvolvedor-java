@@ -2,15 +2,26 @@ package com.dogsplaces.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Sale {
-
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private int buyerId;
 	private boolean finished;
+	
+	@ManyToOne
+	private Buyer buyer;
+	
 	@OneToMany(mappedBy="sale")
 	private	List<Dog> dogs;
+	
 	
 	public boolean isFinished() {
 		return finished;
@@ -36,5 +47,12 @@ public class Sale {
 	public void setDogs(List<Dog> dogs) {
 		this.dogs = dogs;
 	}
+	public Buyer getBuyer() {
+		return buyer;
+	}
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+	}
+	
 	
 }

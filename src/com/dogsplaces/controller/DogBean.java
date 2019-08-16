@@ -45,6 +45,10 @@ public class DogBean {
 		this.searchString = searchString;
 	}
 
+	public void a() {
+		System.out.println("aaaa");
+
+	}
 //	public Dog getDog() {
 //		return dao.select(); Select em um catioro
 //	}

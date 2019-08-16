@@ -31,9 +31,11 @@
 	                    <div class="col">#{dog.price}</div>
 	                    <div class="col">#{dog.breed.name}</div>
 
-            			<h:commandButton value="+ Cart"
-		            		styleClass="col btn btn-success btn-block"
-	            			action="#{saleBean.addSale(dog.id)}"/>
+						<h:form styleClass="col">
+	            			<h:commandButton value="+ Cart"
+			            		styleClass="col btn btn-success btn-block"
+		            			action="#{saleBean.addSale(dog)}"/>
+		           		</h:form>
 					</div>
 				</ui:repeat>
 			</div>
