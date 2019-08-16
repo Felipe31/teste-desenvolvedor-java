@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 
 import com.dogsplaces.dao.DogDao;
 import com.dogsplaces.model.Dog;
+import com.dogsplaces.session.SessionContext;
 
 @ManagedBean
 public class DogBean {
@@ -13,13 +14,20 @@ public class DogBean {
 	private List<Dog> dogs;
 	private String searchString = "";
 	
-	public void searchDog() {
+	public String searchDog() {
 		dogs = dao.searchDog(searchString);
+		SessionContext.getInstance().setAttribute("search", dogs);
+		return "search?faces-redirect=true";
 	}
 
 	public List<Dog> getDogs() {
 		if(dogs == null) {
-			dogs = dao.getDogList();
+			if(SessionContext.getInstance().getAttribute("search") != null) {
+				dogs = (List<Dog>) SessionContext.getInstance().getAttribute("search");
+				SessionContext.getInstance().setAttribute("search", null);
+			} else {
+				dogs = dao.getDogList();
+			}
 		}
 
 		return dogs;

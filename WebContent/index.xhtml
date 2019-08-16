@@ -10,25 +10,23 @@
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 	    <ui:include src="/WEB-INF/common/header.xhtml"/>
-	    <h:dataTable value="#{dogBean.dogs}" var="dog">
-		    <h:column>
-		        <div class="col">
-		            <h2>
-				    	Catioro #{dog.id}
-		            </h2>
-		            <p>Age: #{dog.age}</p>
-		            <p>Coat color: #{dog.coatColor}</p>
-		            <p>Gender: #{dog.gender}</p>
-		            <p>Price: #{dog.price}</p>
-		            <p>
+
+		<div class="row align-items-center">
+			<ui:repeat value="#{dogBean.dogs}" var="dog">
+				<div class="col-4 mt-5 mb-2">
+	                <div class="col">#{dog.age} years old</div>
+	                <div class="col">#{dog.gender}</div>
+	                <div class="col">#{dog.coatColor}</div>
+	                <div class="col">#{dog.price}</div>
+	                <div class="col">#{dog.breed.name}</div>
+	                <p>
 		                <a class="btn" href="#">View details »</a>
 		            </p> 
 		            <h:commandButton value="+ Cart"
 		            	styleClass="btn btn-success btn-block align-self-end"
-	            		action="#{saleBean.addSale(dog.id)}"/>
-		                
-		        </div>
-		    </h:column>
-	    </h:dataTable>
+		           		action="#{saleBean.addSale(dog.id)}"/>
+	            </div>
+			</ui:repeat>
+	    </div>
 	</h:body>
 </html>
