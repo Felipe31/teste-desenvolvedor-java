@@ -81,6 +81,62 @@ public class PersistenceTest {
 		em.persist(dog);
 		tx.commit();
 		em.close();
+		
+		em = JPAUtil.getEntityManager();
+		tx = em.getTransaction();
+		dog = new Dog();
+		dog.setAge(6);
+		dog.setBreed(breed2);
+		dog.setCoatColor("white");
+		dog.setGender('M');
+		dog.setPrice((float)200.59);
+		dog.setSold(false);
+		tx.begin();
+		em.persist(dog);
+		tx.commit();
+		em.close();
+		
+		em = JPAUtil.getEntityManager();
+		tx = em.getTransaction();
+		dog = new Dog();
+		dog.setAge(4);
+		dog.setBreed(breed3);
+		dog.setCoatColor("black");
+		dog.setGender('M');
+		dog.setPrice((float)200.59);
+		dog.setSold(false);
+		tx.begin();
+		em.persist(dog);
+		tx.commit();
+		em.close();
+		
+		em = JPAUtil.getEntityManager();
+		tx = em.getTransaction();
+		dog = new Dog();
+		dog.setAge(6);
+		dog.setBreed(breed2);
+		dog.setCoatColor("white");
+		dog.setGender('M');
+		dog.setPrice((float)200.59);
+		dog.setSold(false);
+		tx.begin();
+		em.persist(dog);
+		tx.commit();
+		em.close();
+		
+		em = JPAUtil.getEntityManager();
+		tx = em.getTransaction();
+		dog = new Dog();
+		dog.setAge(4);
+		dog.setBreed(breed2);
+		dog.setCoatColor("black");
+		dog.setGender('M');
+		dog.setPrice((float)200.59);
+		dog.setSold(false);
+		tx.begin();
+		em.persist(dog);
+		tx.commit();
+		em.close();
 
 
 	}
