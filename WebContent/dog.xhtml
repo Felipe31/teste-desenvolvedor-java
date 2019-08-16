@@ -37,8 +37,11 @@
 			<h2>Buy your new friend!</h2>
 			<p>To buy you new friend, you just need to add him to your
 				shopping cart and do the checkout!</p>
-			<button type="button" class="btn btn-success btn-block">+
-				Cart</button>
+			<h:form styleClass="col">
+       			<h:commandButton value="+ Cart"
+         		styleClass="btn btn-success btn-block"
+        			action="#{saleBean.addSale(dogBean.dog)}"/>
+       		</h:form>
 		</div>
 	</div>
 </h:body>
