@@ -7,6 +7,9 @@
 		<h:outputStylesheet library="css" name="bootstrap.css"/>
 		<title>Dogs Lists</title>
 		<h:outputStylesheet library="css" name="style.css"/>
+		<f:metadata>
+			<f:viewAction action="#{f5Detector.checkF5}" onPostBack="true"/>
+		</f:metadata>
 	</h:head>
 	<h:body styleClass="container" style="background-color: #ecf0f1">
 	    <ui:include src="/WEB-INF/common/header.xhtml"/>
@@ -14,14 +17,16 @@
 		<div class="row align-items-center">
 			<ui:repeat value="#{dogBean.dogs}" var="dog">
 				<div class="col-4 mt-5 mb-2">
-	                <div class="col">#{dog.age} years old</div>
-	                <div class="col">#{dog.gender}</div>
-	                <div class="col">#{dog.coatColor}</div>
-	                <div class="col">#{dog.price}</div>
-	                <div class="col">#{dog.breed.name}</div>
+	                <div class="">#{dog.age} years old</div>
+	                <div class="">#{dog.gender}</div>
+	                <div class="">#{dog.coatColor}</div>
+	                <div class="">#{dog.price}</div>
+	                <div class="">#{dog.breed.name}</div>
 	                <p>
-		                <a class="btn" href="#">View details »</a>
-		            </p> 
+		                <h:form>
+		                	<h:commandLink styleClass="btn" action="#{dogBean.viewDetail(dog)}" value="View details »"/>
+			            </h:form>
+                	</p> 
 		            <h:commandButton value="+ Cart"
 		            	styleClass="btn btn-success btn-block align-self-end"
 		           		action="#{saleBean.addSale(dog.id)}"/>

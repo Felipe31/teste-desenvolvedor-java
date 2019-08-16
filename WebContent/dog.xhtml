@@ -1,44 +1,45 @@
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-	<h:head>
-		<meta charset="UTF-8"/>
-		<h:outputStylesheet library="css" name="bootstrap.css"/>
-		<h:outputStylesheet library="css" name="style.css"/>
-		<title>Dog details</title>
-	</h:head>
-	<h:body styleClass="container" style="background-color: #ecf0f1">
-	    <ui:include src="/WEB-INF/common/header.xhtml"/>
-	    <div class="row mt-4">
-	        <div class="col-md-4 align-self-start">
-	            <h2>
-	                Breed
-	            </h2>
-	            <p>
-	                 Breed characteristics
-	            </p>
-	        </div>
-	        <div class="col-md-4">
-	            <h2>
-	                The Dog
-	            </h2>
-	            <p>
-	                The dog characteristics
-	            </p>
-	        </div>
-	        <div class="col-md-4">
-	            <h2>
-	                Buy your new friend!
-	            </h2>
-	            <p>
-	                To buy you new friend, you just need to add him to your
-	                shopping cart and do the checkout!
-	            </p> 
-	            <button type="button" class="btn btn-success btn-block">
-	                + Cart
-	            </button>
-	        </div>
-	    </div>
-	</h:body>
+<h:head>
+	<meta charset="UTF-8" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="style.css" />
+	<title>Dog details</title>
+	<f:metadata>
+		<f:viewAction action="#{f5Detector.checkF5}" onPostBack="true"/>
+	</f:metadata>
+</h:head>
+<h:body styleClass="container" style="background-color: #ecf0f1">
+	<ui:include src="/WEB-INF/common/header.xhtml" />
+	<div class="row mt-4">
+		<div class="col-md-4 align-self-start">
+			<h2>Breed</h2>
+			<ul style="list-style-type: disc;">
+				<li>Name: #{dogBean.dog.breed.name}</li>
+				<li>Height: #{dogBean.dog.breed.height} inches</li>
+				<li>Weight: #{dogBean.dog.breed.weight} pounds</li>
+				<li>Coat length: #{dogBean.dog.breed.coatLength}</li>
+				<li>Description: #{dogBean.dog.breed.description}</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<h2>The Dog</h2>
+			<ul style="list-style-type: disc;">
+				<li>Price: #{dogBean.dog.price}</li>
+				<li>Color: #{dogBean.dog.coatColor}</li>
+				<li>Gender: #{dogBean.dog.gender}</li>
+				<li>Age: #{dogBean.dog.age} years old</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<h2>Buy your new friend!</h2>
+			<p>To buy you new friend, you just need to add him to your
+				shopping cart and do the checkout!</p>
+			<button type="button" class="btn btn-success btn-block">+
+				Cart</button>
+		</div>
+	</div>
+</h:body>
 </html>

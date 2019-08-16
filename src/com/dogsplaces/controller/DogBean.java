@@ -12,7 +12,13 @@ import com.dogsplaces.session.SessionContext;
 public class DogBean {
 	private DogDao dao = new DogDao();
 	private List<Dog> dogs;
+	private Dog dog;
 	private String searchString = "";
+	
+	public String viewDetail(Dog dog) {
+		SessionContext.getInstance().setAttribute("dogDetail", dog);
+		return "dog?faces-redirect=true";
+	}
 	
 	public String searchDog() {
 		dogs = dao.searchDog(searchString);
@@ -24,7 +30,6 @@ public class DogBean {
 		if(dogs == null) {
 			if(SessionContext.getInstance().getAttribute("search") != null) {
 				dogs = (List<Dog>) SessionContext.getInstance().getAttribute("search");
-				SessionContext.getInstance().setAttribute("search", null);
 			} else {
 				dogs = dao.getDogList();
 			}
@@ -43,6 +48,19 @@ public class DogBean {
 
 	public void setSearchString(String searchString) {
 		this.searchString = searchString;
+	}
+
+	public Dog getDog() {
+		if(dog == null) {
+			if(SessionContext.getInstance().getAttribute("dogDetail") != null) {
+				setDog((Dog) SessionContext.getInstance().getAttribute("dogDetail"));
+			}
+		}
+		return dog;
+	}
+
+	public void setDog(Dog dog) {
+		this.dog = dog;
 	}
 
 //	public Dog getDog() {
