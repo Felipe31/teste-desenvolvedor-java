@@ -1,36 +1,39 @@
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <div class="row">
-    <div class="col-md-12">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-             
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="navbar-toggler-icon"></span>
-            </button> <a class="navbar-brand" href="index.xhtml">
-            	<h:graphicImage library="images" name="logo_transparent.png"
-            		height="50px"/>
-            		
-            </a>
-            <h:form styleClass="form-inline navbar-nav">
-                <h:inputText styleClass="form-control mr-sm-2" value="#{dogBean.searchString}"/> 
-	            <h:commandButton styleClass="btn btn-primary my-2 my-sm-0" value="Search"
-					action="#{dogBean.searchDog()}"/>
-            </h:form>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="navbar-nav ml-md-auto">
-                
-                    <li class="nav-item active">
-                         <a class="nav-link" href="cart.xhtml">Cart <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="jumbotron aling-items-center">
-            <h:graphicImage library="images" name="logo_transparent.png"
-				 height="150px"/>
-        </div>
-    </div>
+	<div class="col-md-12">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="index.xhtml"> <h:graphicImage
+					library="images" name="logo_transparent.png" height="50px" />
+
+			</a>
+			<h:form styleClass="form-inline navbar-nav">
+				<h:inputText styleClass="form-control mr-sm-2"
+					value="#{dogBean.searchString}" />
+				<h:commandButton styleClass="btn btn-primary my-2 my-sm-0"
+					value="Search" action="#{dogBean.searchDog()}" />
+			</h:form>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="navbar-nav ml-md-auto">
+
+					<li class="nav-item active"><a class="nav-link"
+						href="cart.xhtml">Cart <span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="jumbotron aling-items-center">
+			<h:graphicImage library="images" name="logo_transparent.png"
+				height="150px" />
+		</div>
+	</div>
 </div>
 </html>
